@@ -1,7 +1,8 @@
 <h1>NEW BOOKMARK</h1>
-<%= simple_form_for @bookmark do |f| %>
-  <%= f.input :name %>
-  <%= f.association :list %>
 
-  <%= f.button :submit %>
+<%= simple_form_for [ @bookmark, @list] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :movie %>
+  <%= f.association :list %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
