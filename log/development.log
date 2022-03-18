@@ -2472,3 +2472,700 @@ ActionView::Template::Error (undefined method `cl_image_tag' for #<ActionView::B
     22:       width: 400, height: 300, crop: :fill) %>
   
 app/views/lists/index.html.erb:21
+Started GET "/" for ::1 at 2022-03-18 15:05:37 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 6675)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5436.7ms | Allocations: 175244)
+Completed 200 OK in 5444ms (Views: 5432.1ms | ActiveRecord: 5.7ms | Allocations: 181322)
+
+
+Started GET "/" for ::1 at 2022-03-18 15:10:37 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (3.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 38.5ms | Allocations: 8572)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 8660)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 12.8ms | Allocations: 12719)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000008f20>):
+    10:     <% @lists.each do |list|%>
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    13:           <%= f.input :photo, as: :file %>
+    14:           <%= link_to list.name, list_path(list) %>
+    15:         </div>
+    16:       </div>
+  
+app/views/lists/index.html.erb:13
+app/views/lists/index.html.erb:10
+Started GET "/" for ::1 at 2022-03-18 15:12:40 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 5352)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5425)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms | Allocations: 5942)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000009420>):
+    10:     <% @lists.each do |list|%>
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    13:           <%= f.input :photo, as: :file %>
+    14:           <%= link_to list.name, list_path(list) %>
+    15:         </div>
+    16:       </div>
+  
+app/views/lists/index.html.erb:13
+app/views/lists/index.html.erb:10
+Started GET "/" for ::1 at 2022-03-18 15:15:13 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3876)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 12533)
+Completed 200 OK in 26ms (Views: 16.0ms | ActiveRecord: 6.2ms | Allocations: 16134)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:15:16 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 186.6ms | Allocations: 291349)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 191.2ms | Allocations: 299486)
+Completed 200 OK in 194ms (Views: 189.8ms | ActiveRecord: 1.9ms | Allocations: 300200)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:15:56 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"M. Pangolin", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000010b62ba18 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-3jcany.jpeg>, @original_filename="Batman homepage.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"Batman homepage.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "M. Pangolin"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.8ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "M. Pangolin"], ["created_at", "2022-03-18 14:15:56.613235"], ["updated_at", "2022-03-18 14:15:56.613235"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/2
+Completed 302 Found in 15ms (ActiveRecord: 5.8ms | Allocations: 5705)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:15:56 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (7.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:13
+  Rendered lists/show.html.erb within layouts/application (Duration: 28.1ms | Allocations: 10514)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 18548)
+Completed 200 OK in 46ms (Views: 27.7ms | ActiveRecord: 15.0ms | Allocations: 20373)
+
+
+Started GET "/lists/" for ::1 at 2022-03-18 15:16:13 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1023)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 8989)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 1.0ms | Allocations: 9515)
+
+
+Started GET "/lists/" for ::1 at 2022-03-18 15:17:29 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1360)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 9831)
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 1.1ms | Allocations: 11110)
+
+
+Started GET "/lists/" for ::1 at 2022-03-18 15:17:30 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 986)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 9058)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 1.4ms | Allocations: 9569)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:17:32 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 6085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 14037)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms | Allocations: 14680)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:17:43 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"Croziflette", "photo"=>#<ActionDispatch::Http::UploadedFile:0x0000000138899390 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-4xoohk.webp>, @original_filename="croziflette.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"croziflette.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "Croziflette"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.2ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Croziflette"], ["created_at", "2022-03-18 14:17:43.120575"], ["updated_at", "2022-03-18 14:17:43.120575"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/3
+Completed 302 Found in 14ms (ActiveRecord: 5.0ms | Allocations: 4023)
+
+
+Started GET "/lists/3" for ::1 at 2022-03-18 15:17:43 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mList Load (1.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 3]]
+  ↳ app/views/lists/show.html.erb:13
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 9338)
+Completed 200 OK in 27ms (Views: 19.3ms | ActiveRecord: 2.6ms | Allocations: 10639)
+
+
+Started GET "/lists" for ::1 at 2022-03-18 15:18:10 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1017)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 8981)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 1.0ms | Allocations: 9437)
+
+
+Started GET "/lists" for ::1 at 2022-03-18 15:19:21 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1386)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 9747)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 1.3ms | Allocations: 10985)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:19:23 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 6059)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 14012)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 14683)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:19:38 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"Indian curry", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00000001089721e8 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-t343l6.jpeg>, @original_filename="Indian curry.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"Indian curry.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "Indian curry"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.0ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Indian curry"], ["created_at", "2022-03-18 14:19:38.307334"], ["updated_at", "2022-03-18 14:19:38.307334"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/4
+Completed 302 Found in 14ms (ActiveRecord: 5.3ms | Allocations: 4020)
+
+
+Started GET "/lists/4" for ::1 at 2022-03-18 15:19:38 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 4]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 9338)
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 2.6ms | Allocations: 10638)
+
+
+Started GET "/lists/4" for ::1 at 2022-03-18 15:20:29 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 4]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1634)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 9993)
+Completed 200 OK in 33ms (Views: 26.6ms | ActiveRecord: 2.8ms | Allocations: 11941)
+
+
+Started GET "/lists/4" for ::1 at 2022-03-18 15:20:31 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 4]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1145)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 9109)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 2.1ms | Allocations: 10338)
+
+
+Started GET "/lists/4" for ::1 at 2022-03-18 15:20:32 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 4]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1144)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 9108)
+Completed 200 OK in 22ms (Views: 17.1ms | ActiveRecord: 2.1ms | Allocations: 10269)
+
+
+Started GET "/lists/4" for ::1 at 2022-03-18 15:22:08 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 4]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 10059)
+Completed 200 OK in 31ms (Views: 24.9ms | ActiveRecord: 2.2ms | Allocations: 11999)
+
+
+Started GET "/lists.4" for ::1 at 2022-03-18 15:22:10 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 9206)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 1.0ms | Allocations: 9883)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:22:51 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.7ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:15
+  Rendered lists/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 9235)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 1.8ms | Allocations: 10439)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:23:21 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1658)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 10017)
+Completed 200 OK in 31ms (Views: 24.6ms | ActiveRecord: 1.9ms | Allocations: 11956)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:24:13 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1668)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 10027)
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 1.9ms | Allocations: 12034)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:24:27 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1675)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 10034)
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 2.3ms | Allocations: 12041)
+
+
+Started GET "/lists/2" for ::1 at 2022-03-18 15:24:53 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 2]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1680)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 10160)
+Completed 200 OK in 31ms (Views: 23.2ms | ActiveRecord: 2.1ms | Allocations: 12174)
+
+
+Started GET "/lists.2" for ::1 at 2022-03-18 15:25:23 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1243)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 9303)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 1.0ms | Allocations: 9979)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:25:26 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 6085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 14068)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms | Allocations: 15363)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:25:46 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 57.6ms | Allocations: 5709)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 77.6ms | Allocations: 14432)
+Completed 200 OK in 80ms (Views: 78.4ms | ActiveRecord: 0.0ms | Allocations: 14892)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:27:56 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"Maria j'aime ta paella", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000014c1422b8 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-abvx1m.jpeg>, @original_filename="casserolle espagnole.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"casserolle espagnole.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "Maria j'aime ta paella"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.2ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Maria j'aime ta paella"], ["created_at", "2022-03-18 14:27:56.018257"], ["updated_at", "2022-03-18 14:27:56.018257"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/5
+Completed 302 Found in 19ms (ActiveRecord: 5.3ms | Allocations: 3992)
+
+
+Started GET "/lists/5" for ::1 at 2022-03-18 15:27:56 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 5]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1175)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 9139)
+Completed 200 OK in 24ms (Views: 18.7ms | ActiveRecord: 2.1ms | Allocations: 10306)
+
+
+Started GET "/lists.5" for ::1 at 2022-03-18 15:28:02 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1080)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 9044)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 1.0ms | Allocations: 9502)
+
+
+Started GET "/lists.5" for ::1 at 2022-03-18 15:29:36 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2773)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2851)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.0ms | Allocations: 4095)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category"
+    13:         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    14:         <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+    15:           <%= link_to list.name, list_path(list) %>
+    16:         </div>
+    17:       </div>
+  
+app/views/lists/index.html.erb:14
+app/views/lists/index.html.erb:10
+Started GET "/lists.5" for ::1 at 2022-03-18 15:30:13 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2746)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2824)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms | Allocations: 4124)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category"
+    13:         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+    14:         <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+    15:           <%= link_to list.name, list_path(list) %>
+    16:         </div>
+    17:       </div>
+  
+app/views/lists/index.html.erb:14
+app/views/lists/index.html.erb:10
+Started GET "/lists.5" for ::1 at 2022-03-18 15:32:09 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1450)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 9926)
+Completed 200 OK in 36ms (Views: 30.8ms | ActiveRecord: 1.5ms | Allocations: 11265)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:32:19 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 6069)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 13922)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 14659)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:32:33 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"ta soeur sous la douche", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000014cd2c6a0 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-w9lkov.jpeg>, @original_filename="Batman homepage.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"Batman homepage.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "ta soeur sous la douche"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.4ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ta soeur sous la douche"], ["created_at", "2022-03-18 14:32:33.091028"], ["updated_at", "2022-03-18 14:32:33.091028"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/6
+Completed 302 Found in 15ms (ActiveRecord: 5.1ms | Allocations: 4020)
+
+
+Started GET "/lists/6" for ::1 at 2022-03-18 15:32:33 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mList Load (1.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 6]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 9418)
+Completed 200 OK in 29ms (Views: 22.2ms | ActiveRecord: 2.6ms | Allocations: 10719)
+
+
+Started GET "/lists.6" for ::1 at 2022-03-18 15:32:38 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 9075)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 1.0ms | Allocations: 9534)
+
+
+Started GET "/lists.6" for ::1 at 2022-03-18 15:33:21 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1487)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 9963)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 1.0ms | Allocations: 11248)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:33:24 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 6152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 14008)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.0ms | Allocations: 14673)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:33:27 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 5708)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 13561)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms | Allocations: 14018)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:33:43 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"David sous la douche", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000014c10d4c8 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-xvd2iu.png>, @original_filename="burrata.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"burrata.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create List"}
+[31mUnpermitted parameter: :photo[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "David sous la douche"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.1ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "David sous la douche"], ["created_at", "2022-03-18 14:33:43.189809"], ["updated_at", "2022-03-18 14:33:43.189809"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+Redirected to http://localhost:3000/lists/7
+Completed 302 Found in 16ms (ActiveRecord: 4.6ms | Allocations: 4000)
+
+
+Started GET "/lists/7" for ::1 at 2022-03-18 15:33:43 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 7]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 9418)
+Completed 200 OK in 23ms (Views: 18.4ms | ActiveRecord: 1.9ms | Allocations: 10719)
+
+
+Started GET "/lists.7" for ::1 at 2022-03-18 15:33:49 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 9106)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 1.1ms | Allocations: 9565)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 15:35:37 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 8295)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 16367)
+Completed 200 OK in 44ms (Views: 28.1ms | ActiveRecord: 8.0ms | Allocations: 21836)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 15:35:45 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"Michel au sauna des jeunes ephebes", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000014c3b3088 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-mesf4s.png>, @original_filename="burrata.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"burrata.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create List"}
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms | Allocations: 7759)
+
+
+  
+KeyError (Missing configuration for the cloudinary Active Storage service. Configurations available for the test and local services.):
+  
+app/controllers/lists_controller.rb:16:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5664623546625577800)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5664623546625577800)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/lists" for ::1 at 2022-03-18 15:38:38 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"Michel au sauna des jeunes ephebes", "photo"=>#<ActionDispatch::Http::UploadedFile:0x000000014b81a168 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-1255-imov2s.png>, @original_filename="burrata.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"burrata.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create List"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 5.5ms | Allocations: 9231)
+
+
+  
+KeyError (Missing configuration for the cloudinary Active Storage service. Configurations available for the test and local services.):
+  
+app/controllers/lists_controller.rb:16:in `create'
