@@ -4400,3 +4400,277 @@ Processing by ListsController#index as */*
 Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 1.1ms | Allocations: 9658)
 
 
+Started GET "/lists.5" for ::1 at 2022-03-18 16:15:42 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (3.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 39.8ms | Allocations: 6085)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 14446)
+Completed 200 OK in 69ms (Views: 64.9ms | ActiveRecord: 19.6ms | Allocations: 15725)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 16:15:44 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 6168)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 14101)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 14767)
+
+
+Started POST "/lists" for ::1 at 2022-03-18 16:15:52 +0100
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "list"=>{"name"=>"casserolle", "photo"=>#<ActionDispatch::Http::UploadedFile:0x0000000105cfc898 @tempfile=#<Tempfile:/var/folders/jz/4h9s2r295sz94q2zzl7xb3kc0000gn/T/RackMultipart20220318-2482-yovivz.jpeg>, @original_filename="casserolle espagnole.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"list[photo]\"; filename=\"casserolle espagnole.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create List"}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "lists" WHERE "lists"."name" = $1 LIMIT $2[0m  [["name", "casserolle"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Create (1.5ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "casserolle"], ["created_at", "2022-03-18 15:15:52.099189"], ["updated_at", "2022-03-18 15:15:52.099189"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mActiveStorage::Blob Load (1.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 11], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 11], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mActiveStorage::Blob Create (1.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "bavn6tnif1wngwcw7b6qfga6gq54"], ["filename", "casserolle espagnole.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 136050], ["checksum", "KmQSqjtgiU+GpqjwifqubQ=="], ["created_at", "2022-03-18 15:15:52.118137"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mActiveStorage::Attachment Create (1.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photo"], ["record_type", "List"], ["record_id", 11], ["blob_id", 4], ["created_at", "2022-03-18 15:15:52.123515"]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mList Update (2.6ms)[0m  [1m[33mUPDATE "lists" SET "updated_at" = $1 WHERE "lists"."id" = $2[0m  [["updated_at", "2022-03-18 15:15:52.127566"], ["id", 11]]
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:17:in `create'
+[36m  Cloudinary Storage (1498.0ms) [0m[32mUploaded file to key: bavn6tnif1wngwcw7b6qfga6gq54 (checksum: KmQSqjtgiU+GpqjwifqubQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 30b2a091-3875-4f71-a716-8d71cd1f2fb8) to Async(default) with arguments: #<GlobalID:0x0000000105e6e118 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/lists/11
+Completed 302 Found in 1553ms (ActiveRecord: 16.5ms | Allocations: 14699)
+
+
+Started GET "/lists/11" for ::1 at 2022-03-18 16:15:53 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8] Performing ActiveStorage::AnalyzeJob (Job ID: 30b2a091-3875-4f71-a716-8d71cd1f2fb8) from Async(default) enqueued at 2022-03-18T15:15:53Z with arguments: #<GlobalID:0x000000011d2015c0 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/4>>
+  [1m[36mList Load (4.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 11]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2844)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2916)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 6.8ms | Allocations: 5533)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    24:   </div>
+    25: </div>
+    26: 
+    27: <%= cl_image_tag @title.photo.key, height: 300, width: 400, crop: :fill %>
+  
+app/views/lists/show.html.erb:27
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8] [36m  Cloudinary Storage (726.0ms) [0m[34mDownloaded file from key: bavn6tnif1wngwcw7b6qfga6gq54[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [30b2a091-3875-4f71-a716-8d71cd1f2fb8] Performed ActiveStorage::AnalyzeJob (Job ID: 30b2a091-3875-4f71-a716-8d71cd1f2fb8) from Async(default) in 759.0ms
+Started GET "/lists/11" for ::1 at 2022-03-18 16:17:05 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mList Load (1.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (2.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 11]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1704)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 10271)
+Completed 200 OK in 39ms (Views: 29.7ms | ActiveRecord: 3.6ms | Allocations: 12233)
+
+
+Started GET "/lists.11" for ::1 at 2022-03-18 16:17:08 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1461)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 9425)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 1.0ms | Allocations: 10100)
+
+
+Started GET "/lists/11" for ::1 at 2022-03-18 16:17:15 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 11]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1268)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 9232)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 2.3ms | Allocations: 10459)
+
+
+Started DELETE "/lists/11" for ::1 at 2022-03-18 16:17:18 +0100
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"11"}
+  [1m[36mList Load (1.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 11]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 11], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mList Destroy (1.1ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: c7132a56-470e-4c30-9d66-98279c0e60b8) to Async(default) with arguments: #<GlobalID:0x000000011d2f0648 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/lists
+Completed 302 Found in 46ms (ActiveRecord: 8.9ms | Allocations: 10479)
+
+
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8] Performing ActiveStorage::PurgeJob (Job ID: c7132a56-470e-4c30-9d66-98279c0e60b8) from Async(default) enqueued at 2022-03-18T15:17:18Z with arguments: #<GlobalID:0x000000011d32be00 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mActiveStorage::Attachment Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 4], ["LIMIT", 1]]
+Started GET "/lists" for ::1 at 2022-03-18 16:17:18 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mActiveStorage::VariantRecord Load (1.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1[0m  [["blob_id", 4]]
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3177)
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mActiveStorage::Blob Destroy (0.5ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 4]]
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8]   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 15054)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.9ms | Allocations: 16292)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8] [36m  Cloudinary Storage (662.8ms) [0m[31mDeleted file from key: bavn6tnif1wngwcw7b6qfga6gq54[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [c7132a56-470e-4c30-9d66-98279c0e60b8] Performed ActiveStorage::PurgeJob (Job ID: c7132a56-470e-4c30-9d66-98279c0e60b8) from Async(default) in 688.32ms
+Started GET "/lists/8" for ::1 at 2022-03-18 16:17:21 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1289)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 9253)
+Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 2.1ms | Allocations: 10473)
+
+
+Started DELETE "/lists/8" for ::1 at 2022-03-18 16:17:24 +0100
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"8"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 8]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (1.1ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mList Destroy (1.6ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 946cb52c-5029-45af-8a2f-f160191c8422) to Async(default) with arguments: #<GlobalID:0x000000011d7c1ac8 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/lists
+Completed 302 Found in 27ms (ActiveRecord: 10.4ms | Allocations: 7601)
+
+
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422] Performing ActiveStorage::PurgeJob (Job ID: 946cb52c-5029-45af-8a2f-f160191c8422) from Async(default) enqueued at 2022-03-18T15:17:24Z with arguments: #<GlobalID:0x00000001077f9e20 @uri=#<URI::GID gid://rails-watch-list/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mActiveStorage::Attachment Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 1], ["LIMIT", 1]]
+Started GET "/lists" for ::1 at 2022-03-18 16:17:25 +0100
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mActiveStorage::VariantRecord Load (0.9ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1[0m  [["blob_id", 1]]
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+  Rendering lists/index.html.erb within layouts/application
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mActiveStorage::Blob Destroy (1.4ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 1]]
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1898)
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422]   [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 12722)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 1.0ms | Allocations: 13182)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422] [36m  Cloudinary Storage (729.1ms) [0m[31mDeleted file from key: 3pkmavlbl202bew0m99ny0yotcli[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [946cb52c-5029-45af-8a2f-f160191c8422] Performed ActiveStorage::PurgeJob (Job ID: 946cb52c-5029-45af-8a2f-f160191c8422) from Async(default) in 751.3ms
+Started GET "/lists/3" for ::1 at 2022-03-18 16:17:30 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 3]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1176)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 9142)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 2.1ms | Allocations: 10417)
+
+
+Started DELETE "/lists/3" for ::1 at 2022-03-18 16:17:33 +0100
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `destroy'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 3]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mList Destroy (1.1ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/lists_controller.rb:26:in `destroy'
+Redirected to http://localhost:3000/lists
+Completed 302 Found in 17ms (ActiveRecord: 6.7ms | Allocations: 5308)
+
+
+Started GET "/lists" for ::1 at 2022-03-18 16:17:34 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1173)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 9137)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 1.6ms | Allocations: 9593)
+
+
