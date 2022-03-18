@@ -2411,3 +2411,64 @@ FOREIGN KEY ("blob_id")
   [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5664623546625577800)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-03-18 15:01:59 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 22.2ms | Allocations: 7179)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 7257)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 8.4ms | Allocations: 9672)
+
+
+  
+ActionView::Template::Error (undefined method `cl_image_tag' for #<ActionView::Base:0x0000000000e3f8>):
+    18: </div>
+    19: 
+    20: 
+    21: <%= cl_image_tag("wk9kpg0bif59hopj1xt8",
+    22:       width: 400, height: 300, crop: :fill) %>
+  
+app/views/lists/index.html.erb:21
+Started GET "/" for ::1 at 2022-03-18 15:02:01 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 4648)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 4720)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.0ms | Allocations: 5200)
+
+
+  
+ActionView::Template::Error (undefined method `cl_image_tag' for #<ActionView::Base:0x0000000000e718>):
+    18: </div>
+    19: 
+    20: 
+    21: <%= cl_image_tag("wk9kpg0bif59hopj1xt8",
+    22:       width: 400, height: 300, crop: :fill) %>
+  
+app/views/lists/index.html.erb:21
+Started GET "/" for ::1 at 2022-03-18 15:02:02 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (2.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 4642)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 4714)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.1ms | Allocations: 5133)
+
+
+  
+ActionView::Template::Error (undefined method `cl_image_tag' for #<ActionView::Base:0x0000000000e9e8>):
+    18: </div>
+    19: 
+    20: 
+    21: <%= cl_image_tag("wk9kpg0bif59hopj1xt8",
+    22:       width: 400, height: 300, crop: :fill) %>
+  
+app/views/lists/index.html.erb:21
