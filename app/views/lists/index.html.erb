@@ -1,9 +1,18 @@
-<h1>This is your index</h1>
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583169728228-08c15a469385?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80);">
+    <div class="container">
+      <h1>Store your most liked movies !</h1>
+      <%= link_to 'Add your list', new_list_path %>
+    </div>
+</div>
 
-<p>Name of the movie</p>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.name %></li>
-
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list|%>
+      <div class="col-4 my-5">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1507090960745-b32f65d3113a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
