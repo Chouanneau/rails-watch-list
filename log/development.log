@@ -1898,3 +1898,39 @@ Processing by ListsController#index as HTML
 Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.9ms | Allocations: 9358)
 
 
+Started GET "/lists" for ::1 at 2022-03-18 13:11:10 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 7374)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 15523)
+Completed 200 OK in 40ms (Views: 36.9ms | ActiveRecord: 11.6ms | Allocations: 17977)
+
+
+Started GET "/" for ::1 at 2022-03-18 13:11:14 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 956)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 8902)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.9ms | Allocations: 9410)
+
+
+Started GET "/" for ::1 at 2022-03-18 13:11:22 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 955)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 8901)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.9ms | Allocations: 9357)
+
+
