@@ -4106,3 +4106,297 @@ ActionView::Template::Error (no implicit conversion of nil into String):
   
 app/views/lists/index.html.erb:14
 app/views/lists/index.html.erb:10
+Started GET "/lists.10" for ::1 at 2022-03-18 16:03:40 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/index.html.erb:14
+  Rendered lists/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 3938)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 4016)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.9ms | Allocations: 5306)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category"
+    13:         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))",
+    14:         <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>>
+    15:           <%= link_to list.name, list_path(list) %>
+    16:         </div>
+    17:       </div>
+  
+app/views/lists/index.html.erb:14
+app/views/lists/index.html.erb:10
+Started GET "/lists.10" for ::1 at 2022-03-18 16:04:20 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1607)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 10176)
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 1.0ms | Allocations: 11513)
+
+
+Started GET "/lists/new" for ::1 at 2022-03-18 16:04:31 +0100
+Processing by ListsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 6251)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 14118)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.0ms | Allocations: 14796)
+
+
+Started GET "/lists.10" for ::1 at 2022-03-18 16:07:23 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3946)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4024)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.5ms | Allocations: 5262)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    10:     <% @lists.each do |list|%>
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category"
+    13:         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>')">
+    14:           <%= link_to list.name, list_path(list) %>
+    15:         </div>
+    16:       </div>
+  
+app/views/lists/index.html.erb:13
+app/views/lists/index.html.erb:10
+Started GET "/" for ::1 at 2022-03-18 16:07:29 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/index.html.erb:13
+  Rendered lists/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3456)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3528)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.9ms | Allocations: 4106)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    10:     <% @lists.each do |list|%>
+    11:       <div class="col-4 my-5">
+    12:         <div class="card-category"
+    13:         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>')">
+    14:           <%= link_to list.name, list_path(list) %>
+    15:         </div>
+    16:       </div>
+  
+app/views/lists/index.html.erb:13
+app/views/lists/index.html.erb:10
+Started GET "/" for ::1 at 2022-03-18 16:07:57 +0100
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1607)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 10176)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 1.1ms | Allocations: 11411)
+
+
+Started GET "/lists/1" for ::1 at 2022-03-18 16:07:59 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (2.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 21.4ms | Allocations: 7420)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 7492)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 3.3ms | Allocations: 8973)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for #<Movie id: 6, title: "Kristina Lang", overview: "I won't have you question my methods.", poster_url: "http://reichert-nienow.name/beaulah_yost", rating: 68.95, created_at: "2022-03-18 11:07:26.268822000 +0000", updated_at: "2022-03-18 11:07:26.268822000 +0000">):
+    17:     <% @list.movies.each do |movie|%>
+    18:       <div class="col-4 my-5">
+    19:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    20:         url('<%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fill %>')">
+    21:           <%= link_to movie.title, list_path(@list) %>
+    22:         </div>
+    23:       </div>
+  
+app/views/lists/show.html.erb:20
+app/views/lists/show.html.erb:17
+Started GET "/lists/1" for ::1 at 2022-03-18 16:08:48 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3086)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3164)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.8ms | Allocations: 5057)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    16:   <div class="row">
+    17:     <% @list.movies.each do |movie|%>
+    18:       <div class="col-4 my-5">
+    19:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))", <%= cl_image_tag @movie.photo.key, height: 300, width: 400, crop: :fill %>>
+    20:           <%= link_to movie.title, list_path(@list) %>
+    21:         </div>
+    22:       </div>
+  
+app/views/lists/show.html.erb:19
+app/views/lists/show.html.erb:17
+Started GET "/lists/1" for ::1 at 2022-03-18 16:08:49 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.7ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2566)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2638)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.8ms | Allocations: 3837)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    16:   <div class="row">
+    17:     <% @list.movies.each do |movie|%>
+    18:       <div class="col-4 my-5">
+    19:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))", <%= cl_image_tag @movie.photo.key, height: 300, width: 400, crop: :fill %>>
+    20:           <%= link_to movie.title, list_path(@list) %>
+    21:         </div>
+    22:       </div>
+  
+app/views/lists/show.html.erb:19
+app/views/lists/show.html.erb:17
+Started GET "/lists/1" for ::1 at 2022-03-18 16:08:50 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2566)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2638)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.4ms | Allocations: 3761)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    16:   <div class="row">
+    17:     <% @list.movies.each do |movie|%>
+    18:       <div class="col-4 my-5">
+    19:         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))", <%= cl_image_tag @movie.photo.key, height: 300, width: 400, crop: :fill %>>
+    20:           <%= link_to movie.title, list_path(@list) %>
+    21:         </div>
+    22:       </div>
+  
+app/views/lists/show.html.erb:19
+app/views/lists/show.html.erb:17
+Started GET "/lists/1" for ::1 at 2022-03-18 16:09:46 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (2.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1701)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 10268)
+Completed 200 OK in 38ms (Views: 30.1ms | ActiveRecord: 3.4ms | Allocations: 12205)
+
+
+Started GET "/lists.1" for ::1 at 2022-03-18 16:09:51 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1432)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 9605)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 1.1ms | Allocations: 10281)
+
+
+Started GET "/lists/1" for ::1 at 2022-03-18 16:09:53 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1301)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 9265)
+Completed 200 OK in 25ms (Views: 20.4ms | ActiveRecord: 2.2ms | Allocations: 10482)
+
+
+Started GET "/lists.1" for ::1 at 2022-03-18 16:09:55 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 9200)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 1.0ms | Allocations: 9658)
+
+
+Started GET "/lists/5" for ::1 at 2022-03-18 16:09:59 +0100
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 5]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered lists/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1268)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 9232)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 2.2ms | Allocations: 10439)
+
+
+Started GET "/lists.5" for ::1 at 2022-03-18 16:10:02 +0100
+Processing by ListsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:10
+  Rendered lists/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 9200)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 1.1ms | Allocations: 9658)
+
+
